@@ -12,6 +12,13 @@ spec:
       ports:
         - containerPort: 8080
           protocol: TCP
+      resources:
+        requests:
+          memory: "1300Mi"
+          cpu: "500m"
+        limits:
+          memory: "1500Mi"
+          cpu: "750m"
 ---
 apiVersion: v1
 kind: Service
