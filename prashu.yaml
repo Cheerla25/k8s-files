@@ -12,3 +12,17 @@ spec:
       ports:
         - containerPort: 80
           protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prashu-service
+  labels:
+    app: nginx
+spec:
+  selector:
+    app: nginx
+  type: NodePort
+  ports:
+    - port: 35001
+      targetPort: 80
