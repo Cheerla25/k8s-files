@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prashu-pod1
+  labels:
+    app: prashu
+spec:
+  containers:
+    - name: prashu-cont1
+      image: prashu1996/prash2:80
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prashu-service1
+  labels:
+    app: nginx
+spec:
+  selector:
+    app: prashu
+  type: NodePort
+  ports:
+    - port: 35002
+      targetPort: 8080
